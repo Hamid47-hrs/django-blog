@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+    <h3>welcome to the Articles section.</h3>
+    <p>Here you will see the list of articles.</p>
+    <ul>
+        {% for article in articles %}
+            <li>
+                <a href="">{{ article.title }}</a>
+                <p>{{ article.created_date }}</p>
+            </li>
+            <br />
+        {% endfor %}
+    </ul>
+</body>
+</html>
