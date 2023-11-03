@@ -17,3 +17,11 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def snippet(self):
+        return self.content[:20] + " ..."
+    
+    def word_snippet(self):
+        word_list = self.content.split()
+        result = ' '.join(word_list[:10]) + " ..."
+        return result

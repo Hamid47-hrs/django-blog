@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #3e277c;
+    font-family: sans-serif;
+    word-spacing: 0.02cm;
+    color: #e4f5c0;
+}
+
+a {
+    text-decoration: none;
+    color: darkcyan;
+}
+
+a:hover {
+    color:azure;
+}
