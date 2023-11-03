@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("<center>Welcome to my weblog</center>")
+    return render(request, 'index.html')

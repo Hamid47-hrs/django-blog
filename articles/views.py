@@ -10,7 +10,7 @@ def articles_list(request):
         "articles": articles,
     }
 
-    return render(request, "articles/articles_list.html", context=context)
+    return render(request, "articles_list.html", context=context)
 
 
 def articles_detail(request, slug):
@@ -22,6 +22,6 @@ def articles_detail(request, slug):
 
     return render(
         request,
-        "articles/article_detail.html",
+        "article_detail.html",
         context=context,
     )
