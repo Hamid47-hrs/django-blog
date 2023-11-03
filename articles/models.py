@@ -14,6 +14,7 @@ class Articles(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
+    image = models.ImageField(default='default.jpg', blank=True)
 
     def __str__(self):
         return self.title
