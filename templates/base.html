@@ -12,7 +12,23 @@
     <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
 </head>
 <body>
-
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                <li>User: {{user.get_username }}</li>
+                <li>
+                    <form action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Logout" />
+                    </form>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'accounts:login' %}">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
     {% block content %}
     {% endblock %}
 
