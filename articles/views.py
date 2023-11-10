@@ -1,5 +1,6 @@
 from django.shortcuts import HttpResponse, render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from . import models
 from . import forms
 
@@ -37,7 +38,8 @@ def create_article(request):
             form_instance = form.save(commit=False)
             form_instance.author = request.user
             form_instance.save()
-
+            messages.success(request, "Article created successfully.")
+            
             return redirect("articles:list")
 
     else:

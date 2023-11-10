@@ -12,6 +12,13 @@
             <p style="color:crimson">In order ro create a new Article click on the button below.</p>
             <a href="{% url 'articles:create' %}">Create New Article</a>
         {% endif %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <ul>
             {% for article in articles %}
             <li>
