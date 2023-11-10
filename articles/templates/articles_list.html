@@ -8,6 +8,10 @@
     <div class="container">
         <h3>welcome to the Articles section.</h3>
         <p>Here you will see the list of articles.</p>
+        {% if user.is_authenticated %}
+            <p style="color:crimson">In order ro create a new Article click on the button below.</p>
+            <a href="{% url 'articles:create' %}">Create New Article</a>
+        {% endif %}
         <ul>
             {% for article in articles %}
             <li>
