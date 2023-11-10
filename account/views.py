@@ -26,7 +26,12 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             user_login(request, user)
-            return redirect("/")
+
+            if "next" in request.POST:
+                return redirect(request.POST.get("next"))
+
+            else:
+                return redirect("articles:list")
 
     else:
         form = AuthenticationForm()
