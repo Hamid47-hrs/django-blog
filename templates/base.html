@@ -1,3 +1,4 @@
+{% load compress %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,9 +10,11 @@
         {% block title %}
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    {% compress css %}
+        <link rel="stylesheet" href="{% static 'styles/output.css' %}">
+    {% endcompress %}
 </head>
-<body>
+<body class="bg-green-50">
     <nav>
         <ul>
             {% if user.is_authenticated %}
@@ -30,8 +33,10 @@
             {% endif %}
         </ul>
     </nav>
-    {% block content %}
-    {% endblock %}
-
+    <div class="container mx-auto mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+        
 </body>
 </html>

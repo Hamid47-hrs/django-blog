@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "compressor",
     "articles",
     "account",
 ]
@@ -38,7 +39,7 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["templates"],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -100,3 +101,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "assets/media")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Configure the compressor
+COMPRESS_ROOT = BASE_DIR / 'assets'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
